@@ -2,8 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.mycompany.coffeemachineproject;
+package coffeemachineproject;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**
@@ -14,9 +15,10 @@ public class BeansTank {
 
     private int capacity = 1000;
     private ArrayList<Beans> typeBeans=new ArrayList<Beans>();
- Beans type1 = new Beans(500, "AR");
-        Beans type2 = new Beans(500, "RP");
-    public BeansTank() {
+ Beans type1 = new Beans(new DB().BeansArabica(), "AR");
+        Beans type2;
+    public BeansTank() throws SQLException, ClassNotFoundException {
+        this.type2 = new Beans(new DB().BeansRopusta(), "RP");
        
         typeBeans.add(type1);
         typeBeans.add(type2);
@@ -49,8 +51,25 @@ public class BeansTank {
         }
     }
 
+    public int getCapacity() {
+        return capacity;
+    }
+
+    public void setCapacity(int capacity) {
+        this.capacity = capacity;
+    }
+
     public void getInfoOfBeans() {
         System.out.println("the levle of beans = " +"Ar "+ this.getlevleBeans("AR") +"- Rp "+ this.getlevleBeans("RP") + " / " + this.capacity);
     }
+
+    public String toString1() {
+        return ""+type1.levle;
+    }
+      public String toString2() {
+        return ""+type2.levle;
+    }
+    
+    
 
 }
