@@ -2,7 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.mycompany.coffeemachineproject;
+package coffeemachineproject;
+
+import javax.swing.JOptionPane;
+
 
 /**
  *
@@ -19,6 +22,7 @@ public class WaterTank {
 
     public void fillTank(int amount) {
         if (amount < 0 || amount + this.levle > this.capacity) {
+            JOptionPane.showMessageDialog(null, "wrong entry !");
             System.out.println("wrong entry !");
         } else {
             this.levle += amount;
@@ -34,11 +38,25 @@ throw new OutOfWaterException("Not enough water remaining.");
     }
     }
 
+    public int getCapacity() {
+        return capacity;
+    }
+
+    public void setCapacity(int capacity) {
+        this.capacity = capacity;
+    }
+
     public int getLevleOfWater() {
-        return this.getLevleOfWater();
+        return levle;
     }
 
     public void getInfoOfTankWater() {
         System.out.println("the levle of water = " + this.levle + " / " + this.capacity + " mm");
     }
+
+    @Override
+    public String toString() {
+        return   levle + "";
+    }
+    
 }

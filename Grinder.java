@@ -2,9 +2,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.mycompany.coffeemachineproject;
+package coffeemachineproject;
 
-import java.util.Timer;
 
 /**
  *
@@ -19,6 +18,7 @@ private int GrinderRate;
     public void Grinder(int GrinderRate) throws InterruptedException {
         if (GrinderRate == 1) {
             Thread.sleep(5000);
+           
 
         } else if (GrinderRate == 2) {
             Thread.sleep(10000);
